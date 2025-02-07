@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Style.css" />
+    <title>User Interface Design</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Team Number 1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Team Members
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Anirudh</a></li>
+                            <li><a class="dropdown-item" href="#">Sarvesh Ram Kumar</a></li>
+                            <li><a class="dropdown-item" href="#">Abhinav</a></li>
+                            <li><a class="dropdown-item" href="#">Tara Samiksha</a></li>
+                            <li><a class="dropdown-item" href="#">Aravind Harilal</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Dark/Light Mode Toggle -->
+                <div class="form-check form-switch ms-auto">
+                    <input class="form-check-input" type="checkbox" role="switch" id="darkModeToggle">
+                    <label class="form-check-label text-light" for="darkModeToggle">Dark Mode</label>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="py-5 text-center text-white">
+      <div class="container">
+          <h1 class="display-4">Innovative Solutions for Accessibility</h1>
+          <p class="lead">Bridging Communication Gaps with Technology</p>
+      </div>
+  </header>
+
+  <section class="py-5">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 col-lg-4 mb-4 project-card">
+                  <div class="card h-100 shadow">
+                      <img src="./images/shajpg.jpg" class="card-img-top" alt="Smart Home Automation" height="100%">
+                      <div class="card-body">
+                          <h5 class="card-title">Smart Home Automation</h5>
+                          <p class="card-text">Efficiently manage and control home appliances using a linked list-based system.</p>
+                          <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#modal1">Learn More</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 col-lg-4 mb-4 project-card">
+                  <div class="card h-100 shadow">
+                      <img src="./images/Sign-Language-Translator.png" class="card-img-top" alt="ASL Translator" height="100%">
+                      <div class="card-body">
+                          <h5 class="card-title">ASL Translator</h5>
+                          <p class="card-text">Translate American Sign Language into text/speech using a hybrid CNN and RNN model.</p>
+                          <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#modal2">Learn More</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 col-lg-4 mb-4 project-card">
+                  <div class="card h-100 shadow">
+                      <img src="./images/Robot.webp" class="card-img-top" alt="Robotic Hand">
+                      <div class="card-body">
+                          <h5 class="card-title">Robotic Hand for ASL</h5>
+                          <p class="card-text">A robotic hand that translates text/speech into ASL sign language.</p>
+                          <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#modal3">Learn More</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Modals -->
+  <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modal1Label">Smart Home Automation</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <p>Smart home automation systems are becoming increasingly popular, offering users enhanced control over their home environment through interconnected devices. This paper presents a novel approach to smart home automation using linked lists, a fundamental data structure, to efficiently manage and control various home appliances. In this system, each home appliance is represented as a node in a linked list, allowing for dynamic management of devices.</p>
+                  <p>The linked list structure enables easy addition, removal, and modification of appliances, as well as real-time adjustments to their states.  By leveraging the properties of linked lists, the system can scale with increasing numbers of devices while maintaining efficiency.</p>
+                  <img src="./images/linked-list.webp" class="img-fluid mt-3" alt="Linked List Visualization">
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal2Label">ASL Translator</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <div class="modal-body">
+                <p>The American Sign Language (ASL) is a crucial mode of communication.  This paper proposes an innovative approach to translating ASL into text or speech using a hybrid model that combines Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs).</p>
+                <p>The CNN extracts spatial features from ASL hand gesture images, while the RNN captures the sequential dependencies. Experimental results demonstrate the efficacy of this model in achieving high accuracy.</p>
+                <img src="./images/Blog__CNN-vs-RNN-vs-ANN.jpg" class="img-fluid mt-3" alt="CNN vs RNN">
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal3Label">Robotic Hand for ASL</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <div class="modal-body">
+            <p>In this work, we look forward to build a robotic hand that would translate not just letters but also common words to people with hearing and speaking disabilities.</p>
+            <p>The Robotic hand would consist several motors to move it’s fingers corresponding to input given in by the user. The motors would help with the movement of the fingers to show the particular gesture.</p>
+            <img src="./images/Robotic-hand.jpg" class="img-fluid mt-3" alt="Robotic Hand">
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+      // Function to check if an element is in the viewport
+      function isInViewport(element) {
+          const rect = element.getBoundingClientRect();
+          return (
+              rect.top >= 0 &&
+              rect.left >= 0 &&
+              rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+              rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+      }
+
+      // Function to handle the scroll event
+      function handleScroll() {
+          const projectCards = document.querySelectorAll('.project-card');
+          projectCards.forEach(card => {
+              if (isInViewport(card)) {
+                  card.classList.add('animate-card');
+              }
+          });
+      }
+
+      // Add the scroll event listener
+      window.addEventListener('scroll', handleScroll);
+
+      // Initial check on page load
+      handleScroll();
+
+      // Dark Mode Toggle Logic
+      const darkModeToggle = document.getElementById('darkModeToggle');
+
+      // Check for saved preference in localStorage
+      const savedDarkMode = localStorage.getItem('darkMode');
+      if (savedDarkMode === 'true') {
+          document.body.classList.add('dark-mode');
+          darkModeToggle.checked = true;
+      }
+
+      darkModeToggle.addEventListener('change', () => {
+          document.body.classList.toggle('dark-mode');
+
+          // Save preference to localStorage
+          localStorage.setItem('darkMode', darkModeToggle.checked);
+      });
+  </script>
+</body>
+</html>
