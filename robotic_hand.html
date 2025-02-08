@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotic Hand for ASL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+    /* Custom styles for the presentation layout */
+    body {
+      overflow-x: hidden; /* Prevent horizontal scrollbar */
+    }
+
+    .presentation-slide {
+      min-height: 100vh; /* Full viewport height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      position: relative; /* For absolute positioning of navigation */
+
+    }
+    .presentation-slide h2{
+        margin-bottom:1.5rem;
+    }
+    .presentation-slide p{
+        margin-bottom:1rem;
+    }
+    .presentation-content {
+      max-width: 800px; /* Limit content width */
+      text-align: center;
+    }
+
+    .presentation-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 20px; /* Position on the right */
+      display: flex;
+      flex-direction: column;
+      z-index: 1000; /* Ensure it's above other content */
+    }
+
+    .presentation-nav a {
+      display: block;
+      margin: 5px 0;
+      padding: 5px 10px;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent */
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .presentation-nav a:hover {
+      background-color:black;
+    }
+    .code-section {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: left; /* Left-align code */
+      overflow-x: auto; /* Allow horizontal scrolling for long lines */
+    }
+
+    .code-section pre {
+      font-family: 'Courier New', monospace; /* Monospace font for code */
+      font-size: 0.9em;
+      white-space: pre-wrap; /* Wrap long lines */
+      margin: 0; /* Remove default pre margins */
+    }
+
+    .dark-mode .code-section {
+        background-color: #212529;
+    }
+    .dark-mode .code-section pre{
+      color:white;
+    }
+    .btn.back-to-home {
+        position: fixed; /* Fixed position */
+        top: 10px;      /* At the top */
+        left: 10px;     /* At the left */
+        z-index: 1001;
+    }
+
+    body.dark-mode {
+        background-color: #212529;
+        color: #f8f9fa;
+    }
+
+    body.dark-mode .presentation-content {
+        color: #f8f9fa; /* Light text in dark mode */
+    }
+    body.dark-mode .presentation-slide{
+        color:#f8f9fa;
+    }
+
+    body.dark-mode .code-section {
+        background-color: #343a40; /* Darker code background */
+    }
+
+    body.dark-mode .code-section pre {
+        color: #f8f9fa;  /* Light code text in dark mode */
+    }
+    .btn.back-to-home {
+        position: fixed; /* Fixed position */
+        top: 10px;      /* At the top */
+        left: 10px;     /* At the left */
+        z-index: 1001;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    /* Dark mode for back button */
+    body.dark-mode .btn.back-to-home {
+        color: #fff; /* Ensure text is visible in dark mode */
+        background-color: #343a40; /* Darker background in dark mode */
+        border-color: #343a40;
+    }
+    body.dark-mode .btn.back-to-home:hover{
+        background-color:#000;
+        border-color:#000;
+    }
+    .dark-mode-toggle-container {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1002;
+    }
+    /*Style the toggle*/
+    .form-switch .form-check-input {
+        width: 3em;
+        height: 1.2em;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    body.dark-mode .form-check-label{
+        color:#fff;
+    }
+
+    </style>
+</head>
+<body>
+    <a href="./index.html" class="btn btn-secondary back-to-home">Back to Home</a>
+    <div class="presentation-nav">
+        <a href="#slide1">1</a>
+        <a href="#slide2">2</a>
+        <a href="#slide3">3</a>
+        <a href="#slide4">4</a>
+        <a href="#slide5">5</a>
+        <a href="#slide6">6</a>
+        <a href="#slide7">7</a>
+        <a href="#slide8">8</a>
+        <a href="#slide9">9</a>
+    </div>
+    <div class="dark-mode-toggle-container">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="darkModeToggle">
+            <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
+        </div>
+    </div>
+
+    <section id="slide1" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>ASL-Retranslation: Bridging Communication with a Robotic Hand</h2>
+            <p>An innovative project to translate text into American Sign Language (ASL) using a robotic hand.</p>
+            <img src="./images/hand2.jpg" alt="Robotic Hand" class="img-fluid" style="max-height: 400px;"> 
+        </div>
+    </section>
+
+    <section id="slide2" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>Project Overview</h2>
+            <p>ASL-Retranslation aims to create a robotic hand (either 3D-printed or cardboard-constructed) that can dynamically represent ASL gestures based on text input. This will facilitate communication for individuals who use ASL.</p>
+            <p>Key Goals:</p>
+            <ul>
+                <li>Accurate ASL letter representation.</li>
+                <li>Simplified sentence processing for efficient translation.</li>
+                <li>Modular design for adaptable construction (3D printed or cardboard).</li>
+                <li>Use of readily available components (Arduino, servo motors).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="slide3" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>Materials Used</h2>
+            <ul>
+                <li><strong>Hand Structure:</strong> 3D-printed model (preferred) or Cardboard construction.</li>
+                <li><strong>Actuation:</strong>
+                    <ul>
+                        <li>Servo Motors (for finger movement)</li>
+                        <li>Fishing Wire (to transmit force to fingers)</li>
+                        <li>Elastic Bands (for finger retraction)</li>
+                    </ul>
+                </li>
+                <li><strong>Control System:</strong> Arduino microcontroller</li>
+            </ul>
+             <img src="./images/handnow.png" alt="Materials" class="img-fluid" style="max-height: 300px;"> 
+        </div>
+    </section>
+
+    <section id="slide4" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>Technical Implementation: Hardware</h2>
+            <p>The system uses an Arduino board to control multiple servo motors.  Each servo corresponds to a finger or wrist joint.  Fishing wire connects the servos to the finger joints, allowing for extension. Elastic bands provide the opposing force, pulling the fingers back to a resting position when the servo is not actively pulling.</p>
+             <ul>
+                <li><strong>Arduino:</strong>  The central microcontroller, processing input and sending control signals to the servos.</li>
+                <li><strong>Servo Motors:</strong>  Provide precise angular control for finger positioning.</li>
+                <li><strong>Wiring:</strong>  Connects the Arduino to the servo motors, power supply, and any input devices.</li>
+            </ul>
+
+        </div>
+    </section>
+
+     <section id="slide5" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>Technical Implementation: Software</h2>
+            <p>The software component consists of several key parts:</p>
+            <ul>
+                <li><strong>Sentence Preprocessing (SpaCy):</strong>  The input text is simplified using SpaCy's natural language processing capabilities.  This reduces complexity by focusing on key words (nouns, verbs, pronouns) and lemmatizing verbs.</li>
+                <li><strong>Tokenization:</strong>  The preprocessed sentence is broken down into individual letters or common words (tokens).</li>
+                <li><strong>Gesture Mapping:</strong>  Each token is mapped to a pre-defined set of servo angles representing the corresponding ASL letter.</li>
+                <li><strong>Servo Control:</strong>  The Arduino code uses the `pyfirmata` library to send precise angle commands to each servo motor, creating the desired hand gesture.</li>
+            </ul>
+             <p>Code Snippet (Preprocessing and Tokenization):</p>
+            <div class="code-section">
+                <pre><code class="language-python">
+import spacy
+from pyfirmata import Arduino, util
+import time
+
+nlp = spacy.load("en_core_web_sm")
+
+def preprocessing(sentence):
+    doc = nlp(sentence.lower())
+    asl_words = []
+    for token in doc:
+        if token.pos_ in ['PRON', 'NOUN', 'VERB']:
+            if token.pos_ == 'VERB':
+                asl_words.append(token.lemma_)
+            else:
+                asl_words.append(token.text)
+    return " ".join(asl_words)
+
+def tokens(sentence):
+    #  (Simplified for demonstration - you might have a list of common words)
+    tokens = []
+    for letter in sentence:
+        tokens.append(letter)
+    return tokens
+                </code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section id="slide6" class="presentation-slide">
+        <div class="presentation-content">
+             <h2>Technical Implementation: Servo Control</h2>
+             <p>This code snippet shows how to move a single servo and the structure of the ASL letter mapping:</p>
+            <div class="code-section">
+                <pre><code class="language-python">
+# (Assuming Arduino setup and servo_pins as in your original code)
+
+def move_servo(servo_id, angle):
+    if servo_id in servo_pins and 0 <= angle <= 180:
+       servo_pins[servo_id].write(angle)
+       time.sleep(0.5)
+    else:
+        print(f"Invalid servo ID ({servo_id}) or angle ({angle})!")
+
+#Example mapping (partial)
+mapping = {
+    '': [0, 0, 0, 0, 0, 0, 0],  # Neutral position
+    'a': [90, 90, 90, 90, 180, 90, 1], # Example angles for 'a'
+    'b': [0, 0, 0, 0, 90, 90, 1],
+    # ... other letters ...
+}
+
+def ASL_letter(angles):
+    index(angles[0])
+    middle(angles[1])
+    ring(angles[2])
+    pinky(angles[3])
+    thumb(angles[4])
+    wrist(angles[5])
+    seperate(angles[6])
+                </code></pre>
+            </div>
+             <p><strong>Explanation:</strong></p>
+            <ul>
+                <li>`move_servo`:  This function takes a servo ID and an angle, and sends the command to the Arduino to move the specified servo.</li>
+                <li>`mapping`:  This dictionary is crucial.  It maps each token (letter or common word) to a list of angles.  Each angle in the list corresponds to a specific servo motor (index finger, middle finger, etc.).  You'll need to carefully define these angles for each ASL letter.</li>
+                <li>`ASL_letter`: calls the different functions that individually control the servos, with an angles parameter that is derived from the `mapping` object.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="slide7" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>Challenges and Solutions</h2>
+            <ul>
+                <li><strong>Challenge:</strong>  Achieving accurate and fluid finger movements.<br>
+                    <strong>Solution:</strong>  Precise calibration of servo angles and the use of elastic bands for natural-looking retraction.  Experimentation with different fishing wire lengths and attachment points.</li>
+                <li><strong>Challenge:</strong>  Mapping complex sentences to ASL.<br>
+                    <strong>Solution:</strong>  Using SpaCy for preprocessing and focusing on core sentence elements.  Potentially implementing a more sophisticated grammar parsing system in the future.</li>
+                <li><strong>Challenge:</strong>  Building a robust and reliable hand structure.<br>
+                    <strong>Solution:</strong>  Iterative design process, testing different materials and construction techniques.  3D printing provides more precise parts, while cardboard allows for rapid prototyping.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="slide8" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>Future Work & Enhancements</h2>
+            <ul>
+                <li><strong>Expanded Vocabulary:</strong>  Increase the number of ASL signs supported, including more complex gestures and potentially dynamic movements.</li>
+                <li><strong>Improved Dexterity:</strong>  Explore more advanced hand designs with more degrees of freedom (e.g., individual finger joint control).</li>
+                <li><strong>Real-time Translation:</strong>  Integrate with speech recognition software to enable real-time speech-to-ASL translation.</li>
+                <li><strong>User Interface:</strong>  Develop a user-friendly interface for inputting text and controlling the hand.</li>
+                <li><strong>Miniaturization:</strong>  Explore smaller, more portable designs.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="slide9" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>Conclusion</h2>
+            <p>ASL-Retranslation offers a promising approach to making ASL more accessible through technology.  By combining readily available hardware with clever software, this project demonstrates the potential for creating assistive devices that can bridge communication gaps. While there are challenges to overcome, the project's modular design and focus on core functionality provide a solid foundation for future development.</p>
+        </div>
+    </section>  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dark Mode Toggle Logic
+        const darkModeToggle = document.getElementById('darkModeToggle');
+
+        // Check for saved preference in localStorage
+        const savedDarkMode = localStorage.getItem('darkMode');
+        if (savedDarkMode === 'true') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
+        darkModeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+
+            // Save preference to localStorage
+            localStorage.setItem('darkMode', darkModeToggle.checked);
+        });
+    </script>
+</body>
+</html>

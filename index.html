@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./Style.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>User Interface Design</title>
 </head>
 <body>
@@ -56,7 +56,7 @@
                       <div class="card-body">
                           <h5 class="card-title">Smart Home Automation</h5>
                           <p class="card-text">Efficiently manage and control home appliances using a linked list-based system.</p>
-                          <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#modal1">Learn More</a>
+                            <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#modal1">Learn More</a>
                       </div>
                   </div>
               </div>
@@ -84,7 +84,6 @@
       </div>
   </section>
 
-  <!-- Modals -->
   <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
       <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -93,11 +92,14 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                  <p>Smart home automation systems are becoming increasingly popular, offering users enhanced control over their home environment through interconnected devices. This paper presents a novel approach to smart home automation using linked lists, a fundamental data structure, to efficiently manage and control various home appliances. In this system, each home appliance is represented as a node in a linked list, allowing for dynamic management of devices.</p>
-                  <p>The linked list structure enables easy addition, removal, and modification of appliances, as well as real-time adjustments to their states.  By leveraging the properties of linked lists, the system can scale with increasing numbers of devices while maintaining efficiency.</p>
+                  <p>Smart home automation systems are becoming increasingly popular, offering users enhanced control over their home environment through interconnected devices. This paper presents a novel approach to smart home automation using linked lists, a fundamental data structure, to efficiently manage and control various home appliances. In this system, each home appliance is represented as a node in a 
+                    linked list, allowing for dynamic management of devices.</p>
+                  <p>The linked list structure enables easy addition, removal, and modification of appliances, as well as real-time adjustments to their states, such as turning on/off, temperature control, or lighting adjustments. By leveraging the properties of linked lists, the system can scale with increasing numbers of devices while maintaining efficiency. The proposed solution is designed
+                    for ease of implementation and use, with a focus on minimizing resource consumption and enhancing system responsiveness. Experimental results show linked list-based approach provides an effective solution for smart home automation, offering improved device management and seamless user control.</p>
                   <img src="./images/linked-list.webp" class="img-fluid mt-3" alt="Linked List Visualization">
               </div>
               <div class="modal-footer">
+                  <a href="../Smart-Home-Automation-Java/src/frontend/index.html" class="btn btn-secondary">Visit Site</a>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
           </div>
@@ -112,11 +114,13 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
               <div class="modal-body">
-                <p>The American Sign Language (ASL) is a crucial mode of communication.  This paper proposes an innovative approach to translating ASL into text or speech using a hybrid model that combines Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs).</p>
-                <p>The CNN extracts spatial features from ASL hand gesture images, while the RNN captures the sequential dependencies. Experimental results demonstrate the efficacy of this model in achieving high accuracy.</p>
+                <p>The American Sign Language (ASL) is a crucial mode of communication for the deaf and hard-of-hearing community. However, communication barriers often arise when non-signers interact with ASL users. This paper proposes an innovative approach to translating ASL into text or speech using a hybrid model that combines Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs). </p>
+                <p>The CNN is employed to extract spatial features from ASL hand gesture images, while the RNN captures the sequential dependencies in the gesture movements, improving the translation accuracy. The model is trained on a large dataset of ASL signs and utilizes a combination of image pre-processing techniques and advanced neural architectures to enhance real-time translation performance. 
+                    Experimental results demonstrate the efficacy of this model in achieving high accuracy for recognizing individual signs as well as continuous signing, offering a promising solution to bridging the communication gap between ASL users and non-signers.</p>
                 <img src="./images/Blog__CNN-vs-RNN-vs-ANN.jpg" class="img-fluid mt-3" alt="CNN vs RNN">
               </div>
               <div class="modal-footer">
+                  <a href="#" class="btn btn-secondary">Visit Site</a>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
           </div>
@@ -130,12 +134,13 @@
               <h5 class="modal-title" id="modal3Label">Robotic Hand for ASL</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-              <div class="modal-body">
-            <p>In this work, we look forward to build a robotic hand that would translate not just letters but also common words to people with hearing and speaking disabilities.</p>
-            <p>The Robotic hand would consist several motors to move it’s fingers corresponding to input given in by the user. The motors would help with the movement of the fingers to show the particular gesture.</p>
+              <div class="modal-body">The Robotic hand would consist several motors to move it’s fingers corresponding to input given in by the user. When the input is given, the model that we have created would convert it to asl language which would be sent as signal to the robotic arm and the motors would help with the movement of the fingers to show the particular gesture.
+            <p> While a large percentage of the human population don’t have disabilities, there is still a significant portion of the human population who have to live with some disabilities. Hence, they require assistance in managing with their disabilities.In this work, we look forward to build a robotic hand that would translate not just letters but also common words to people with hearing and speaking disabilities.</p>
+            <p>The Robotic hand would consist several motors to move it’s fingers...</p>
             <img src="./images/Robotic-hand.jpg" class="img-fluid mt-3" alt="Robotic Hand">
               </div>
               <div class="modal-footer">
+                  <a href="./robotic_hand.html" class="btn btn-secondary">Visit Site</a>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
           </div>
