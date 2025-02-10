@@ -126,6 +126,24 @@
         right: 10px;
         z-index: 1002;
     }
+
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+
+    body.dark-mode th {
+        background-color: black;
+    }
+
     /*Style the toggle*/
     .form-switch .form-check-input {
         width: 3em;
@@ -144,13 +162,14 @@
     <div class="presentation-nav">
         <a href="#slide1">1</a>
         <a href="#slide2">2</a>
-        <a href="#slide3">3</a>
-        <a href="#slide4">4</a>
-        <a href="#slide5">5</a>
-        <a href="#slide6">6</a>
-        <a href="#slide7">7</a>
-        <a href="#slide8">8</a>
-        <a href="#slide9">9</a>
+        <a href="#slide03">3</a>
+        <a href="#slide3">4</a>
+        <a href="#slide4">5</a>
+        <a href="#slide5">6</a>
+        <a href="#slide6">7</a>
+        <a href="#slide7">8</a>
+        <a href="#slide8">9</a>
+        <a href="#slide9">10</a>
     </div>
     <div class="dark-mode-toggle-container">
         <div class="form-check form-switch">
@@ -163,6 +182,13 @@
         <div class="presentation-content">
             <h2>ASL-Retranslation: Bridging Communication with a Robotic Hand</h2>
             <p>An innovative project to translate text into American Sign Language (ASL) using a robotic hand.</p>
+            <ul>
+                <li>Anirudh - CB.SC.U4AIE24007</li>
+                <li>Abhinav  - CB.SC.U4AIE24002</li>
+                <li>Sarvesh - CB.SC.U4AIE24048</li>
+                <li>Tara - CB.SC.U4AIE24045</li>
+                <li>Aravind - CB.SC.U4AIE24008</li>
+              </ul>
             <img src="./images/hand2.jpg" alt="Robotic Hand" class="img-fluid" style="max-height: 400px;"> 
         </div>
     </section>
@@ -178,6 +204,60 @@
                 <li>Modular design for adaptable construction (3D printed or cardboard).</li>
                 <li>Use of readily available components (Arduino, servo motors).</li>
             </ul>
+        </div>
+    </section>
+
+    <section id="slide03" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>Literature Review: ASL Retranslation using a Robotic Hand</h2>
+            <table>
+            <thead>
+                <tr>
+                <th>Serial No.</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Methodologies/Techniques</th>
+                <th>Key Contributions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>1</td>
+                <td>DeepASL: Enabling Ubiquitous and Intelligent American Sign Language Translation</td>
+                <td>2020</td>
+                <td>Deep Learning, Recurrent Neural Networks (RNNs), specifically LSTMs, Sequence-to-Sequence models, Attention mechanisms.  Focus on handling continuous sign language.</td>
+                <td>Developed a system for continuous ASL translation, addressing challenges of co-articulation and variability in signing speed.  Showed improved accuracy over previous methods.</td>
+                </tr>
+                <tr>
+                <td>2</td>
+                <td>Real-time American Sign Language Recognition with Convolutional Neural Networks</td>
+                <td>2017</td>
+                <td>Convolutional Neural Networks (CNNs) for feature extraction from video frames, Hidden Markov Models (HMMs) or Connectionist Temporal Classification (CTC) for temporal modeling.</td>
+                <td>Demonstrated the feasibility of real-time ASL recognition using CNNs.  Achieved high accuracy on isolated sign recognition.  Good starting point for handshape classification.</td>
+                </tr>
+                <tr>
+                <td>3</td>
+                <td>Design and Control of a Dexterous Robotic Hand for Sign Language Gestures</td>
+                <td>2015</td>
+                <td>Robotics, Kinematic modeling, Hand gesture synthesis, Control algorithms (e.g., PID control, impedance control), Actuator design.</td>
+                <td>Focused on the mechanical design and control aspects of a robotic hand capable of performing ASL gestures.  Addressed challenges in achieving human-like dexterity and speed.  Provides a foundation for the robotic hand hardware.</td>
+                </tr>
+                <tr>
+                <td>4</td>
+                    <td>Sign Language Recognition, Generation, and Translation: An Interdisciplinary Perspective</td>
+                    <td>2021</td>
+                    <td>Survery Paper, Natural Language Processing (NLP) Techniques, Machine Translation, Sign Language Linguistics, Computer Vision, Robotics. Review of various methods.</td>
+                    <td>Provided a comprehensive overview of the interdisciplinary research in sign language processing, encompassing recognition, generation, and translation. Highlighted the challenges and future directions in the field. Addresses the gap between NLP and robotics for ASL.</td>
+                </tr>
+                <tr>
+                <td>5</td>
+                <td>Progressive Transformers for End-to-End Sign Language Production</td>
+                <td>2022</td>
+                <td>Transformer networks, Progressive training (gradually increasing model complexity),  Connectionist Temporal Classification (CTC),  Focus on end-to-end sign language *production* (text-to-sign).</td>
+                <td>Introduced a progressive training approach for Transformer networks in sign language production, leading to improved performance and more natural-looking sign generation.  Represents a state-of-the-art approach to sign language *generation*, which is directly relevant to your "retranslation" goal.</td>
+                </tr>
+            </tbody>
+            </table> 
         </div>
     </section>
 
