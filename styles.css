@@ -117,7 +117,7 @@ body.dark-mode .img-fluid {
 }
 
 .dropdown-menu{
-    background-color: rgb(125, 4, 176);
+    background-color: rgb(242, 241, 243);
     width:200px;
     color:rgb(255, 255, 255);
     border:1px solid white;
@@ -127,6 +127,11 @@ body.dark-mode .img-fluid {
 body.dark-mode .dropdown-menu{
     background-color: #343a40;
 }
+
+body.dark-mode .dropdown-item{
+    color: white;
+}
+
 .nav-link{
     color:white !important;
 }
