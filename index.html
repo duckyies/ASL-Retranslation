@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>User Interface Design</title>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -54,7 +55,7 @@
           <div class="row">
               <div class="col-md-6 col-lg-4 mb-4 project-card">
                   <div class="card h-100 shadow">
-                      <img src="./images/shajpg.jpg" class="card-img-top" alt="Smart Home Automation" height="100%">
+                      <img src="./static/images/shajpg.jpg" class="card-img-top" alt="Smart Home Automation" height="100%">
                       <div class="card-body">
                           <h5 class="card-title">Smart Home Automation</h5>
                           <p class="card-text">Efficiently manage and control home appliances using a linked list-based system.</p>
@@ -64,7 +65,7 @@
               </div>
               <div class="col-md-6 col-lg-4 mb-4 project-card">
                   <div class="card h-100 shadow">
-                      <img src="./images/Sign-Language-Translator.png" class="card-img-top" alt="ASL Translator" height="100%">
+                      <img src="./static/images/Sign-Language-Translator.png" class="card-img-top" alt="ASL Translator" height="100%">
                       <div class="card-body">
                           <h5 class="card-title">ASL Translator</h5>
                           <p class="card-text">Translate American Sign Language into text/speech using a hybrid CNN and RNN model.</p>
@@ -74,13 +75,19 @@
               </div>
               <div class="col-md-6 col-lg-4 mb-4 project-card">
                   <div class="card h-100 shadow">
-                      <img src="./images/Robot.webp" class="card-img-top" alt="Robotic Hand">
+                      <img src="./static/images/Robot.webp" class="card-img-top" alt="Robotic Hand">
                       <div class="card-body">
-                          <h5 class="card-title">Robotic Hand for ASL</h5>
-                          <p class="card-text">A robotic hand that translates text/speech into ASL sign language.</p>
-                          <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#modal3">Learn More</a>
+                        <h5 class="card-title">Robotic Hand for ASL</h5>
+                        <p class="card-text">A robotic hand that translates text/speech into ASL sign language.</p>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal3">Learn More</a>
+                            <a href="./asl_translator.html" class="btn btn-success">Try Translator</a>
+                        </div>
+                    </div>
                       </div>
                   </div>
+                <div class="card-body">
+   
               </div>
           </div>
       </div>
@@ -88,7 +95,7 @@
 
   <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
       <div class="modal-dialog modal-lg">
-          <div class="modal-    ">
+          <div class="modal-content ">
               <div class="modal-header">
                   <h5 class="modal-title" id="modal1Label">Smart Home Automation</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -98,7 +105,7 @@
                     linked list, allowing for dynamic management of devices.</p>
                   <p>The linked list structure enables easy addition, removal, and modification of appliances, as well as real-time adjustments to their states, such as turning on/off, temperature control, or lighting adjustments. By leveraging the properties of linked lists, the system can scale with increasing numbers of devices while maintaining efficiency. The proposed solution is designed
                     for ease of implementation and use, with a focus on minimizing resource consumption and enhancing system responsiveness. Experimental results show linked list-based approach provides an effective solution for smart home automation, offering improved device management and seamless user control.</p>
-                  <img src="./images/linked-list.webp" class="img-fluid mt-3" alt="Linked List Visualization">
+                  <img src="./static/images/linked-list.webp" class="img-fluid mt-3" alt="Linked List Visualization">
               </div>
               <div class="modal-footer">
                   <a href="../Smart-Home-Automation-Java/src/frontend/index.html" class="btn btn-secondary">Visit Site</a>
@@ -119,7 +126,7 @@
                 <p>The American Sign Language (ASL) is a crucial mode of communication for the deaf and hard-of-hearing community. However, communication barriers often arise when non-signers interact with ASL users. This paper proposes an innovative approach to translating ASL into text or speech using a hybrid model that combines Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs). </p>
                 <p>The CNN is employed to extract spatial features from ASL hand gesture images, while the RNN captures the sequential dependencies in the gesture movements, improving the translation accuracy. The model is trained on a large dataset of ASL signs and utilizes a combination of image pre-processing techniques and advanced neural architectures to enhance real-time translation performance. 
                     Experimental results demonstrate the efficacy of this model in achieving high accuracy for recognizing individual signs as well as continuous signing, offering a promising solution to bridging the communication gap between ASL users and non-signers.</p>
-                <img src="./images/Blog__CNN-vs-RNN-vs-ANN.jpg" class="img-fluid mt-3" alt="CNN vs RNN">
+                <img src="./static/images/Blog__CNN-vs-RNN-vs-ANN.jpg" class="img-fluid mt-3" alt="CNN vs RNN">
               </div>
               <div class="modal-footer">
                   <a href="#" class="btn btn-secondary">Visit Site</a>
@@ -139,7 +146,7 @@
               <div class="modal-body">The Robotic hand would consist several motors to move it’s fingers corresponding to input given in by the user. When the input is given, the model that we have created would convert it to asl language which would be sent as signal to the robotic arm and the motors would help with the movement of the fingers to show the particular gesture.
             <p> While a large percentage of the human population don’t have disabilities, there is still a significant portion of the human population who have to live with some disabilities. Hence, they require assistance in managing with their disabilities.In this work, we look forward to build a robotic hand that would translate not just letters but also common words to people with hearing and speaking disabilities.</p>
             <p>The Robotic hand would consist several motors to move it’s fingers...</p>
-            <img src="./images/Robotic-hand.jpg" class="img-fluid mt-3" alt="Robotic Hand">
+            <img src="./static/images/Robotic-hand.jpg" class="img-fluid mt-3" alt="Robotic Hand">
               </div>
               <div class="modal-footer">
                   <a href="./robotic_hand.html" class="btn btn-secondary">Visit Site</a>
@@ -151,50 +158,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script>
-      // Function to check if an element is in the viewport
-      function isInViewport(element) {
-          const rect = element.getBoundingClientRect();
-          return (
-              rect.top >= 0 &&
-              rect.left >= 0 &&
-              rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-              rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-          );
-      }
+  <script src="./js/script.js" type="text/javascript"></script>
 
-      // Function to handle the scroll event
-      function handleScroll() {
-          const projectCards = document.querySelectorAll('.project-card');
-          projectCards.forEach(card => {
-              if (isInViewport(card)) {
-                  card.classList.add('animate-card');
-              }
-          });
-      }
-
-      // Add the scroll event listener
-      window.addEventListener('scroll', handleScroll);
-
-      // Initial check on page load
-      handleScroll();
-
-      // Dark Mode Toggle Logic
-      const darkModeToggle = document.getElementById('darkModeToggle');
-
-      // Check for saved preference in localStorage
-      const savedDarkMode = localStorage.getItem('darkMode');
-      if (savedDarkMode === 'true') {
-          document.body.classList.add('dark-mode');
-          darkModeToggle.checked = true;
-      }
-
-      darkModeToggle.addEventListener('change', () => {
-          document.body.classList.toggle('dark-mode');
-
-          // Save preference to localStorage
-          localStorage.setItem('darkMode', darkModeToggle.checked);
-      });
-  </script>
 </body>
 </html>
