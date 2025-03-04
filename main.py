@@ -14,7 +14,6 @@ app.config['Headers'] = 'Access-Control-Allow-Origin'
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['CONTENT_TYPE'] = 'multipart/form-data'
 
-
 def preprocessing(sentence):
     doc = nlp(sentence.lower())
 
@@ -28,7 +27,6 @@ def preprocessing(sentence):
 
     asl_ordered = " ".join(asl_words)
     return asl_ordered
-
 
 def tokens(sentence):
     common_words=[]
@@ -45,9 +43,6 @@ def tokens(sentence):
         tokens.append('')
 
     return tokens
-
-
-
 
 @app.route("/process", methods = ['POST','GET'])
 @cross_origin()
@@ -66,4 +61,18 @@ def process():
     
     return json.dumps((sentence_tokens, formatted_tokens))
 
-app.run()
+# app.run()
+
+import serial
+import time
+import random
+
+ser = serial.Serial('COM7', 9600)  # Replace with your port
+time.sleep(2)  # Allow time for Arduino to initialize
+
+messages = ["hi"]
+
+with open("messages.txt", "w") as f:
+    f.write(",".join(messages))  # Save as "HI,IM,GO"
+
+ser.close()
