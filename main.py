@@ -14,6 +14,17 @@ app.config['Headers'] = 'Access-Control-Allow-Origin'
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['CONTENT_TYPE'] = 'multipart/form-data'
 
+import serial
+import time
+
+
+arduino = serial.Serial(port='COM7', baudrate=115200, timeout=0.1)
+def write_read(x):
+    arduino.write(bytes(x + '\n', 'utf-8'))  
+    data = arduino.readline().decode('utf-8').strip() 
+    return data
+
+
 def preprocessing(sentence):
     doc = nlp(sentence.lower())
 
@@ -53,26 +64,23 @@ def process():
     
     sentence_tokens = tokens(preprocessed_sentence)
     formatted_tokens = ""
+    arduino_tokens = []
 
     for token in sentence_tokens:
         if token == "":
             formatted_tokens += " "
         else: formatted_tokens += token
-    
+
+
+    for token in sentence_tokens:
+        if token == "":
+            continue
+        arduino_tokens.append(token)
+
+
+    val = write_read(",".join(arduino_tokens))
+    print(val)
     return json.dumps((sentence_tokens, formatted_tokens))
 
-# app.run()
+app.run()
 
-import serial
-import time
-import random
-
-ser = serial.Serial('COM7', 9600)  # Replace with your port
-time.sleep(2)  # Allow time for Arduino to initialize
-
-messages = ["hi"]
-
-with open("messages.txt", "w") as f:
-    f.write(",".join(messages))  # Save as "HI,IM,GO"
-
-ser.close()
