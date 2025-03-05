@@ -20,9 +20,15 @@ import time
 
 arduino = serial.Serial(port='COM7', baudrate=115200, timeout=0.1)
 def write_read(x):
-    arduino.write(bytes(x + '\n', 'utf-8'))  
-    data = arduino.readline().decode('utf-8').strip() 
-    return data
+    time.sleep(0.1)
+    # Convert to lowercase and split into individual characters
+    cleaned = x.lower().replace(" ", "")
+    chars = list(cleaned)
+    
+    # Send as comma-separated characters
+    arduino.flushInput()
+    arduino.write(','.join(chars).encode('utf-8') + b'\n')
+    return arduino.readline().decode().strip()
 
 
 def preprocessing(sentence):

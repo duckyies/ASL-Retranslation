@@ -1,1 +1,2 @@
-print(str(['a','bv','c']) + '2')
+import time
+print(int(time.time()))
