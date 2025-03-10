@@ -3,22 +3,24 @@ from pyfirmata import Arduino, util
 import time
 
 
-# Load SpaCy model
 nlp = spacy.load("en_core_web_sm")
-# Replace 'COM3' with your port
-board = Arduino('COM3')
+board = Arduino('COM10')
 
-servo_pins = {1: board.get_pin('d:3:s'), 2: board.get_pin('d:5:s'),  3: board.get_pin('d:6:s'),  4: board.get_pin('d:9:s'),  5: board.get_pin('d:10:s'), 6: board.get_pin('d:11:s'),7: board.get_pin('d:12:s'), 8: board.get_pin('d:13:s')  }
+servo_pins = {1: board.get_pin('d:8:s'), 2: board.get_pin('d:11:s'),  3: board.get_pin('d:10:s'),  4: board.get_pin('d:7:s'),  5: board.get_pin('d:6:s'), 6: board.get_pin('d:5:s'),7: board.get_pin('d:9:s'), 8: board.get_pin('d:4:s')  }
 
 def move_servo(servo_id, angle):
     """
-    Move the specified servo to the given angle.
+    Move the specified servo t
+    
+    
+    o the given angle.
     servo_id: The ID of the servo motor (1 to 8).
     angle: Angle to move to (0 to 180 degrees).
     """
     if servo_id in servo_pins and 0 <= angle <= 180:
        servo_pins[servo_id].write(angle)
-       time.sleep(0.5)  # Allow the servo time to reach the position
+       print(f"Servo {servo_id} moved to {angle} degrees on pin .")
+       time.sleep(0.1)  # Allow the servo time to reach the position
     else:
         print(f"Invalid servo ID ({servo_id}) or angle ({angle})!")
 
@@ -121,7 +123,7 @@ preprocessed_sentence=preprocessing(sentence)
 x=tokens(preprocessed_sentence)
 for i in x:
     ASL_letter(mapping[i])
-    time.sleep(2)
+    #time.sleep(2)
 
 
 

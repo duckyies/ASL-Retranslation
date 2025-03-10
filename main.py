@@ -18,7 +18,7 @@ import serial
 import time
 
 
-arduino = serial.Serial(port='COM7', baudrate=115200, timeout=0.1)
+arduino = serial.Serial(port='COM10', baudrate=115200, timeout=0.1)
 def write_read(x):
     time.sleep(0.1)
     cleaned = x.lower().replace(" ", "")

@@ -1,147 +1,147 @@
-body.dark-mode .translator-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.translator-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: rgba(243, 234, 234, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-body.dark-mode .translator-container {
-    background-color: rgba(52, 58, 64, 0.9);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .translator-bg {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom right, #333, #000);
-    padding: 20px;
-}
-
-.translator-bg {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom right, #e9dfdf, #726a6a);
-    padding: 20px;
-}
-
-.output-container {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-body.dark-mode .output-container {
-    background-color: #212529;
-    color: #f8f9fa;
-}
-
-.finger-display {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1.5rem;
-}
-
-body.dark-mode .form-label {
-    color: white;
-}
-
-body.dark-mode .text-center {
-    color: white;
-}
-
-body.dark-mode .form-check-label {
-    color: white;
-}
-.finger {
-    width: 30px;
-    height: 100px;
-    background-color: #f0f0f0;
-    border-radius: 15px;
-    position: relative;
-    transition: transform 0.5s ease;
-    transform-origin: bottom center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: #333;
-}
-
-body.dark-mode .finger {
-    background-color: #495057;
-    color: #f8f9fa;
-}
-
-.thumb {
-    height: 70px;
-    transform: rotate(10deg);
-}
-
-.btn.back-to-home {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1001;
-}
-
-.dark-mode-toggle-container {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1002;
-}
-
-.current-letter {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 1rem;
-    min-height: 60px;
-}
-
-.asl-info {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background-color: #e9f5ff;
-    border-radius: 8px;
-    border-left: 5px solid #007bff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-body.dark-mode .asl-info {
-    background-color: #1c2c3a;
-    border-color: #0056b3;
-}
-
-.tokens-display {
-    margin-top: 1rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    min-height: 40px;
-    transition: background-color 0.3s ease;
-}
-
-body.dark-mode .tokens-display {
-    background-color: #343a40;
-}
+    /* Custom styles for the presentation layout */
+    body {
+        overflow-x: hidden; /* Prevent horizontal scrollbar */
+      }
+  
+      .presentation-slide {
+        min-height: 100vh; /* Full viewport height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        position: relative; /* For absolute positioning of navigation */
+  
+      }
+      .presentation-slide h2{
+          margin-bottom:1.5rem;
+      }
+      .presentation-slide p{
+          margin-bottom:1rem;
+      }
+      .presentation-content {
+        max-width: 800px; /* Limit content width */
+        text-align: center;
+      }
+  
+      .presentation-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px; /* Position on the right */
+        display: flex;
+        flex-direction: column;
+        z-index: 1000; /* Ensure it's above other content */
+      }
+  
+      .presentation-nav a {
+        display: block;
+        margin: 5px 0;
+        padding: 5px 10px;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .presentation-nav a:hover {
+        background-color:black;
+      }
+      .code-section {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+        text-align: left; /* Left-align code */
+        overflow-x: auto; /* Allow horizontal scrolling for long lines */
+      }
+  
+      .code-section pre {
+        font-family: 'Courier New', monospace; /* Monospace font for code */
+        font-size: 0.9em;
+        white-space: pre-wrap; /* Wrap long lines */
+        margin: 0; /* Remove default pre margins */
+      }
+  
+      .dark-mode .code-section {
+          background-color: #212529;
+      }
+      .dark-mode .code-section pre{
+        color:white;
+      }
+      .btn.back-to-home {
+          position: fixed; /* Fixed position */
+          top: 10px;      /* At the top */
+          left: 10px;     /* At the left */
+          z-index: 1001;
+      }
+  
+      body.dark-mode {
+          background-color: #212529;
+          color: #f8f9fa;
+      }
+  
+      body.dark-mode .presentation-content {
+          color: #f8f9fa; /* Light text in dark mode */
+      }
+      body.dark-mode .presentation-slide{
+          color:#f8f9fa;
+      }
+  
+      body.dark-mode .code-section {
+          background-color: #343a40; /* Darker code background */
+      }
+  
+      body.dark-mode .code-section pre {
+          color: #f8f9fa;  /* Light code text in dark mode */
+      }
+      .btn.back-to-home {
+          position: fixed; /* Fixed position */
+          top: 10px;      /* At the top */
+          left: 10px;     /* At the left */
+          z-index: 1001;
+          transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      /* Dark mode for back button */
+      body.dark-mode .btn.back-to-home {
+          color: #fff; /* Ensure text is visible in dark mode */
+          background-color: #343a40; /* Darker background in dark mode */
+          border-color: #343a40;
+      }
+      body.dark-mode .btn.back-to-home:hover{
+          background-color:#000;
+          border-color:#000;
+      }
+      .dark-mode-toggle-container {
+          position: fixed;
+          top: 10px;
+          right: 10px;
+          z-index: 1002;
+      }
+  
+      table {
+      width: 100%;
+      border-collapse: collapse;
+      }
+      th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+      }
+      th {
+          background-color: #f2f2f2;
+      }
+  
+      body.dark-mode th {
+          background-color: black;
+      }
+  
+      /*Style the toggle*/
+      .form-switch .form-check-input {
+          width: 3em;
+          height: 1.2em;
+          margin-right: 10px;
+          cursor: pointer;
+      }
+      body.dark-mode .form-check-label{
+          color:#fff;
+      }
