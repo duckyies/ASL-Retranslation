@@ -33,3 +33,41 @@ function displayTokens(tokens) {
         `<span class="badge bg-primary">${token}</span>`
     ).join(' ');
 }
+
+function animateFingers(tokens) {
+
+    let currentIndex = 0;
+    const letterDisplay = document.getElementById('currentLetter');
+
+    if (window.animationInterval) {
+        clearInterval(window.animationInterval);
+    }
+
+    function updateFingers(letter) {
+        letterDisplay.textContent = letter === '' ? 'Space' : letter.toUpperCase();
+    }
+
+    updateFingers(tokens[0]);
+
+    window.animationInterval = setInterval(() => {
+        currentIndex++;
+        if (currentIndex >= tokens.length) {
+            clearInterval(window.animationInterval);
+            setTimeout(() => {
+
+                letterDisplay.textContent = "Done";
+                
+                document.querySelectorAll('.finger').forEach(finger => {
+                    finger.style.transform = 'rotate(0deg)';
+
+                });
+
+            }, 1000);
+
+
+            return;
+        }
+        updateFingers(tokens[currentIndex]);
+    }, 1000);
+
+}
