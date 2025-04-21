@@ -53,6 +53,21 @@
                     <p>For demonstration purposes, we're showing how the fingers would bend for each character.</p>
                 </div>
             </div>
+
+             <div class="audio-section">
+                <h3 class="text-center mb-3">Audio Transcription</h3>
+                <div class="controls text-center">
+                    <button id="startRecordBtn" class="btn btn-success me-2">Start Recording</button>
+                    <button id="stopRecordBtn" class="btn btn-danger" disabled>Stop Recording</button>
+                </div>
+                <div id="audioStatus" class="text-center">Status: Idle</div>
+                <audio id="audioPlayback" controls></audio>
+                <div>
+                    <h4 class="tr-result">Transcription Result:</h4>
+                    <pre id="transcriptionOutput">Transcription will appear here...</pre>
+                </div>
+            </div>
+            
         </div>
     </div>
     

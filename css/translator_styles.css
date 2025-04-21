@@ -94,7 +94,6 @@ body.dark-mode .finger {
 
 .thumb {
     height: 70px;
-    transform: rotate(10deg);
 }
 
 .btn.back-to-home {
@@ -144,4 +143,61 @@ body.dark-mode .asl-info {
 
 body.dark-mode .tokens-display {
     background-color: #343a40;
+}
+
+.audio-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ccc;
+}
+body.dark-mode .audio-section {
+        border-top: 1px solid #444;
+}
+
+.tr-result {
+    color: black;
+}
+
+body.dark-mode .tr-result {
+    color: white;
+}
+
+#audioPlayback {
+    width: 100%;
+    margin-top: 1rem;
+}
+#audioStatus {
+    margin-top: 1rem;
+    font-weight: bold;
+    min-height: 24px; /* Ensure space for status text */
+}
+#transcriptionOutput {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #e9ecef; /* Light transcription bg */
+    border-radius: 5px;
+    min-height: 80px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid #ced4da;
+}
+body.dark-mode #transcriptionOutput {
+    background-color: #343a40; /* Dark transcription bg */
+    border: 1px solid #495057;
+    color: #f8f9fa;
+}
+
+.api-warning {
+    color: #dc3545; /* Bootstrap danger color */
+    background-color: #f8d7da; /* Light danger background */
+    border: 1px solid #f5c2c7;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+body.dark-mode .api-warning {
+    background-color: #3a1a1d;
+    border-color: #842029;
+    color: #f5c2c7;
 }
