@@ -1,6 +1,6 @@
 body {
     overflow-x: hidden; 
-  }
+}
 
 .presentation-slide {
     min-height: 100vh; 
@@ -115,10 +115,9 @@ body.dark-mode .btn.back-to-home:hover{
     right: 10px;
     z-index: 1002;
 }
-
 table {
-width: 100%;
-border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 th, td {
     border: 1px solid black;

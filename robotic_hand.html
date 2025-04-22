@@ -89,7 +89,7 @@
                 <li><strong>Servo Motors:</strong>  Provide precise angular control for finger positioning.</li>
                 <li><strong>Wiring:</strong>  Connects the Arduino to the servo motors, power supply, and any input devices.</li>
             </ul>
-            <video src="./static/images/vid.mp4"> 
+            <video src="./static/images/vid.mp4" controls> 
 
         </div>
     </section>
@@ -130,16 +130,24 @@
             </ul>
         </div>
     </section>
+
+        <section id="slide10" class="presentation-slide">
+        <div class="presentation-content">
+            <h2>Technical Implementation: Speech-to-Text (via Gemini)</h2>
+            <p>This component focuses on converting spoken language into text using browser technologies and Google's Gemini API. This transcribed text then serves as the input for the ASL translation/animation stage.</p>
+            <ul>
+                <li><strong>Web Audio API: </strong> uSED directly within the browser (using JavaScript) to request microphone access and record audio from the user. Captures audio in a suitable format.</li>
+                <li><strong>JavaScript: </strong> Manages the recorded audio data as a `Blob` object. Controls the entire process, making asynchronous network requests (`fetch`) to external APIs.</li>
+                <li><strong>Google Gemini API:</strong> Once uploaded, the audio file's URI is sent to the Gemini `generateContent` API endpoint. A system instruction prompts the model to perform only voice-to-text transcription, returning the spoken words as plain text.</li>
+                <li><strong>DOM Manipulation & Integration:</strong> JavaScript updates the user interface to show recording status, provides audio playback controls, displays the final transcription, automatically populates the text input field and triggers the form submission.</li>
+            </ul>
+        </div>
+    </section>
     
     <section id="slide7" class="presentation-slide">
         <div class="presentation-content">
-            <h2>Challenges and Solutions</h2>
-            <ul>
-                <li><strong>Challenge:</strong>  Achieving accurate and fluid finger movements.<br>
-                    <strong>Solution:</strong>  Precise calibration of servo angles and the use of elastic bands for natural-looking retraction.  Experimentation with different fishing wire lengths and attachment points.</li>
-                <li><strong>Challenge:</strong>  Mapping complex sentences to ASL.<br>
-                    <strong>Solution:</strong>  Using SpaCy for preprocessing and focusing on core sentence elements.  Potentially implementing a more sophisticated grammar parsing system in the future.</li>
-            </ul>
+            <h2>Execution</h2>
+            <video src="./connected.mp4" controls style="max-width: 100%; height: auto;">
         </div>
     </section>
 
@@ -149,7 +157,7 @@
             <ul>
                 <li><strong>Expanded Vocabulary:</strong>  Increase the number of ASL signs supported, including more complex gestures and potentially dynamic movements.</li>
                 <li><strong>Improved Dexterity:</strong>  Explore more advanced hand designs with more degrees of freedom (e.g., individual finger joint control).</li>
-                <li><strong>Real-time Translation:</strong>  Integrate with speech recognition software to enable real-time speech-to-ASL translation.</li>
+                <li><strong>Real-time Translation:</strong>  Integrate with faster and local speech recognition software to enable real-time speech-to-ASL translation.</li>
             </ul>
         </div>
     </section>
