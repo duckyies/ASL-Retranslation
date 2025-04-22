@@ -1,108 +1,155 @@
-  #include "HCPCA9685.h"
-  #define I2CAdd 0x40
+#include "HCPCA9685.h"
+#define I2CAdd 0x40
+HCPCA9685 HCPCA9685(I2CAdd);
 
-  HCPCA9685 HCPCA9685(I2CAdd);
+// Structure to store servo angles for each letter
+struct ServoAngles {
+  uint16_t angles[8]; // 0-180 for each servo
+};
 
+// Array of angle sets for each letter of the alphabet (A-Z)
+ServoAngles letterAngles[26] = {
+  {0,360,0,360,360,360,360,80},    // A
+  {360,0,360,0,0,0,0,80},          // B
+  {180,180,360,180,180,180,180,80}, // C
+  {0,360,360,270,0,360,360,80},    // D
+  {90,270,360,270,270,270,270,80}, // E
+  {360,0,360,0,270,0,0,80},        // F
+  {0,0,0,360,0,0,360,120},         // G
+  {0,0,360,0,0,0,360,120},         // H
+  {360,360,360,360,360,360,360,80}, // I
+  {360,360,360,360,360,360,360,120}, // J
+  {0,0,0,0,0,0,360,80},            // K
+  {0,0,0,360,0,0,360,80},          // L
+  {0,0,360,270,270,0,270,80},      // M
+  {0,0,360,270,270,0,360,80},      // N
+  {90,0,360,270,270,0,270,120},    // O
+  {0,0,360,270,0,0,360,120},       // P
+  {0,0,360,0,0,0,360,120},         // Q
+  {0,0,360,0,180,0,360,80},        // R
+  {0,360,360,360,360,360,360,80},  // S
+  {0,0,360,180,250,0,360,80},      // T
+  {0,0,360,0,0,0,360,80},          // U
+  {0,0,360,0,0,0,360,80},          // V
+  {0,0,360,0,0,0,0,80},            // W
+  {0,0,360,360,180,0,360,80},      // X
+  {360,0,0,360,360,0,360,80},      // Y
+  {0,360,360,360,0,360,360,120},   // Z
+  
+};
 
-  struct ServoAngles {
-    uint8_t angles[8]; // 0-180 for each servo
-  };
-  ServoAngles letterAngles[26][8] = {{0,360,0,360,360,360,360,80},
-  {360,0,360,0,0,0,0,80},
-  {180,180,360,180,180,180,180,80},
-  {0,360,360,270,0,360,360,80},
-  {90,270,360,270,270,270,270,80},
-  {360,0,360,0,270,0,0,80},
-  {0,0,0,360,0,0,360,120},
-  {0,0,360,0,0,0,360,120},
-  {360,360,360,360,360,360,360,80},
-  {360,360,360,360,360,360,360,120},
-  {0,0,0,0,0,0,360,80},
-  {0,0,0,360,0,0,360,80},
-  {0,0,360,270,270,0,270,80},
-  {0,0,360,270,270,0,360,80},
-  {90,0,360,270,270,0,270,120},
-  {0,0,360,270,0,0,360,120},
-  {0,0,360,0,0,0,360,120},{
-    0,0,360,0,180,0,360,80},
-    {0,360,360,360,360,360,360,80},{0,0,360,180,250,0,360,80},{0,0,360,0,0,0,360,80},{0,0,360,0,0,0,0,80},{0,0,360,360,180,0,360,80},{360,0,0,360,360,0,360,80},{0,360,360,360,0,360,360,120}};
+// Current positions of each servo
+int currentAngles[8] = {0, 0, 0, 0, 0, 0, 0, 80};
 
+// Serial communication variables
+const int BUFFER_SIZE = 200;
+char inputBuffer[BUFFER_SIZE];
+int bufferIndex = 0;
+bool stringComplete = false;
 
-
-  const int BUFFER_SIZE = 200;
-  char inputBuffer[BUFFER_SIZE];
-  int bufferIndex = 0;
-  bool stringComplete = false;
-
-  unsigned long previousMillis = 0;
-  const long interval = 500;  // Non-blocking delay interval
-  int currentElement = 0;
-  int elementCount = 0;
-  char* elements[100];  // Max 100 elements
-
-  void setup() {
-    Serial.begin(115200);
-    HCPCA9685.Init(SERVO_MODE);
-    HCPCA9685.Sleep(false);
-    memset(inputBuffer, 0, BUFFER_SIZE);
-    randomSeed(analogRead(0));
-    
-    
-
-    //SETUP ANGLES. TESTING NEEDED.
+void setup() {
+  Serial.begin(115200);
+  HCPCA9685.Init(SERVO_MODE);
+  HCPCA9685.Sleep(false);
+  
+  // Initialize all servos to starting position
+  for(int i = 0; i < 8; i++) {
+    HCPCA9685.Servo(i, currentAngles[i]);
   }
+  
+  memset(inputBuffer, 0, BUFFER_SIZE);
+  Serial.println("Ready to receive letters...");
+}
 
-  void loop() {
-    // Read serial data without blocking
-    while (Serial.available() && !stringComplete) {
-      char inChar = Serial.read();
-      if (inChar == '\n') {
-        inputBuffer[bufferIndex] = '\0';  // Null-terminate
-        stringComplete = true;
-      } else if (bufferIndex < BUFFER_SIZE - 1) {
-        inputBuffer[bufferIndex++] = inChar;
+// Function to move servos slowly to target positions
+void moveSlowly(uint16_t targetAngles[8]) {
+  Serial.println("Starting movement");
+  bool moving = true;
+  
+  while(moving) {
+    int inPlace = 0;
+    
+    for(int i = 0; i < 8; i++) {
+      if(targetAngles[i] < currentAngles[i]) {
+        currentAngles[i]--;
+        HCPCA9685.Servo(i, currentAngles[i]);
+      }
+      else if(targetAngles[i] > currentAngles[i]) {
+        currentAngles[i]++;
+        HCPCA9685.Servo(i, currentAngles[i]);
+      }
+      else {
+        inPlace++;
       }
     }
+    
+    if(inPlace == 8) {
+      Serial.println("Movement complete");
+      moving = false;
+      return;
+    }
+    
+    // Small delay for smooth movement
+    delay(1.5); // Adjust this value to control speed (higher = slower)
+  }
+}
 
-    if (stringComplete) {
-      // Skip processing if input is "121"
-      if (strcmp(inputBuffer, "121") != 0) {
-        Serial.print("Received: ");
-        Serial.println(inputBuffer);
-
-        // Split input into elements
-        elementCount = 0;
-        char* token = strtok(inputBuffer, ",");
-        while (token != NULL && elementCount < 100) {
-          elements[elementCount++] = token;
-          token = strtok(NULL, ",");
+void loop() {
+  // Read serial data without blocking
+  while (Serial.available() && !stringComplete) {
+    char inChar = Serial.read();
+    if (inChar == '\n') {
+      inputBuffer[bufferIndex] = '\0';  // Null-terminate
+      stringComplete = true;
+    } else if (bufferIndex < BUFFER_SIZE - 1) {
+      inputBuffer[bufferIndex++] = inChar;
+    }
+  }
+  
+  if (stringComplete) {
+    // Process the received letter
+    Serial.print("Received: ");
+    Serial.println(inputBuffer);
+    
+    // Check if we have a single letter
+    if (strlen(inputBuffer) == 1 && isAlpha(inputBuffer[0])) {
+      char letter = toupper(inputBuffer[0]);
+      int letterIndex = letter - 'A';
+      
+      // Check if it's a valid letter (A-Z)
+      if (letterIndex >= 0 && letterIndex < 26) {
+        Serial.print("Moving to position for letter: ");
+        Serial.println(letter);
+        
+        // Move servos to the position for this letter
+        moveSlowly(letterAngles[letterIndex].angles);
+      } else {
+        Serial.println("Invalid letter received. Please send A-Z.");
+      }
+    } else {
+      // If we received a longer message, check if it contains multiple letters
+      for (int i = 0; i < strlen(inputBuffer); i++) {
+        if (isAlpha(inputBuffer[i])) {
+          char letter = toupper(inputBuffer[i]);
+          int letterIndex = letter - 'A';
+          
+          if (letterIndex >= 0 && letterIndex < 26) {
+            Serial.print("Moving to position for letter: ");
+            Serial.println(letter);
+            
+            // Move servos to the position for this letter
+            moveSlowly(letterAngles[letterIndex].angles);
+            
+            // Small delay between letters
+            delay(1000);
+          }
         }
-
-        currentElement = 0;  
-      }
-
-      bufferIndex = 0;
-      stringComplete = false;
-      memset(inputBuffer, 0, BUFFER_SIZE);
-    }
-
-    if (currentElement < elementCount) {
-      unsigned long currentMillis = millis();
-      if (currentMillis - previousMillis >= interval) {
-        previousMillis = currentMillis;
-
-        char* element = elements[currentElement];
-        int angle = random(0, 180); 
-        HCPCA9685.Servo(0, letterAngles[random(0,26)].angles[0]);
-        HCPCA9685.Servo(1, letterAngles[random(0,26)].angles[1]);
-        HCPCA9685.Servo(2, letterAngles[random(0,26)].angles[2]);
-        HCPCA9685.Servo(3, letterAngles[random(0,26)].angles[3]);
-        HCPCA9685.Servo(4, letterAngles[random(0,26)].angles[4]);
-        HCPCA9685.Servo(5, letterAngles[random(0,26)].angles[5]);
-        HCPCA9685.Servo(6, letterAngles[random(0,26)].angles[6]);
-        HCPCA9685.Servo(7, letterAngles[random(0,26)].angles[7]);
-        currentElement++;
-        delay(1000);
       }
     }
+    
+    // Reset for next command
+    bufferIndex = 0;
+    stringComplete = false;
+    memset(inputBuffer, 0, BUFFER_SIZE);
   }
+}

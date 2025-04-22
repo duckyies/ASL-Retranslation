@@ -116,6 +116,52 @@
             
         </div>
     </section>
+    
+    <section id="slide11" class="presentation-slide">
+        <div class="presentation-slide" id="slide-servo-specs">
+            <div class="presentation-content">
+                <h2>Servo Motor Specifications</h2>
+                <p>The actuation of the robotic hand relies on precise and reliable servo motors. We selected SG90 servos based on our needs:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Specification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Operating Voltage</td>
+                            <td>4.8V ~ 6.0V</td>
+                        </tr>
+                        <tr>
+                            <td>Stall Torque</td>
+                            <td>
+                                2.0 kg/cm (at 4.8V)<br>
+                                2.2 kg/cm (at 6.0V)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Operating Speed</td>
+                            <td>
+                                0.09 sec/60° (at 4.8V)<br>
+                                0.08 sec/60° (at 6.0V)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Rotation Angle</td>
+                            <td>180° (Maximum)</td>
+                        </tr>
+                        <tr>
+                            <td>Dead Band Width</td>
+                            <td>7 µs (microseconds)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
     <section id="slide6" class="presentation-slide">
         <div class="presentation-content">
@@ -136,7 +182,7 @@
             <h2>Technical Implementation: Speech-to-Text (via Gemini)</h2>
             <p>This component focuses on converting spoken language into text using browser technologies and Google's Gemini API. This transcribed text then serves as the input for the ASL translation/animation stage.</p>
             <ul>
-                <li><strong>Web Audio API: </strong> uSED directly within the browser (using JavaScript) to request microphone access and record audio from the user. Captures audio in a suitable format.</li>
+                <li><strong>Web Audio API: </strong> Used directly within the browser (using JavaScript) to request microphone access and record audio from the user. Captures audio in a suitable format.</li>
                 <li><strong>JavaScript: </strong> Manages the recorded audio data as a `Blob` object. Controls the entire process, making asynchronous network requests (`fetch`) to external APIs.</li>
                 <li><strong>Google Gemini API:</strong> Once uploaded, the audio file's URI is sent to the Gemini `generateContent` API endpoint. A system instruction prompts the model to perform only voice-to-text transcription, returning the spoken words as plain text.</li>
                 <li><strong>DOM Manipulation & Integration:</strong> JavaScript updates the user interface to show recording status, provides audio playback controls, displays the final transcription, automatically populates the text input field and triggers the form submission.</li>
